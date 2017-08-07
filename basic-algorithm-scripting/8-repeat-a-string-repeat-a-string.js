@@ -9,16 +9,22 @@ Global String Object
 */
 
 function repeatStringNumTimes(str, num) {
-    // repeat after me
-    return str;
-  }
-  
-  repeatStringNumTimes("abc", 3);
+    var output = "";
+    if (num > 0) {
+        while (num) {
+            output += str;
+            num--
+        }
+    }
+    return output;
+}
 
-  // Test
-  repeatStringNumTimes("*", 3) // should return "***".
-  repeatStringNumTimes("abc", 3) // should return "abcabcabc".
-  repeatStringNumTimes("abc", 4) // should return "abcabcabcabc".
-  repeatStringNumTimes("abc", 1) // should return "abc".
-  repeatStringNumTimes("*", 8) // should return "********".
-  repeatStringNumTimes("abc", -2) // should return "".
+
+// Test
+repeatStringNumTimes("abc", 3);
+repeatStringNumTimes("*", 3) // should return "***".
+repeatStringNumTimes("abc", 3) // should return "abcabcabc".
+repeatStringNumTimes("abc", 4) // should return "abcabcabcabc".
+repeatStringNumTimes("abc", 1) // should return "abc".
+repeatStringNumTimes("*", 8) // should return "********".
+repeatStringNumTimes("abc", -2) // should return "".
