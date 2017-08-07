@@ -11,23 +11,19 @@ Comparison Operators
 */
 
 function largestOfFour(arr) {
-    var compare0 = 0;
-    var compare1 = 0;
-    var compare2 = 0;
-    var compare3 = 0;
-    var output;
+    var output = [];
 
     for (var i = 0; i < 4; i++) {
-        compare0 += arr[0][i];
-        compare1 += arr[1][i];
-        compare2 += arr[2][i];
-        compare3 += arr[3][i];
+        var largest = arr[i][0];
+        for (var i2d2 = 1; i2d2 < 4; i2d2++) {
+            if(largest < arr[i][i2d2]){
+                largest = arr[i][i2d2];
+            }
+        }
+        output.push(largest);
     }
 
-    function findLargest(){
-        
-    }
-
+    console.log(output);
     return output;
 }
 
@@ -36,4 +32,16 @@ largestOfFour([
     [13, 27, 18, 26],
     [32, 35, 37, 39],
     [1000, 1001, 857, 1]
-]);
+]); // should return an array.
+largestOfFour([
+    [13, 27, 18, 26],
+    [4, 5, 1, 3],
+    [32, 35, 37, 39],
+    [1000, 1001, 857, 1]
+]); //  should return [27,5,39,1001].
+largestOfFour([
+    [4, 9, 1, 3],
+    [13, 35, 18, 26],
+    [32, 35, 97, 39],
+    [1000000, 1001, 857, 1]
+]); //should return [9, 35, 97, 1000000]
