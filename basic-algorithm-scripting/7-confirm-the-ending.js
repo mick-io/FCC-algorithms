@@ -12,13 +12,12 @@ String.prototype.substring()
 */
 
 function confirmEnding(str, target) {
-    var len = target.length();
+    var len = str.length;
     var output = false;
-    var startIndex = target.length - len;
+    var startIndex = len - target.length;
     if (str.substr(startIndex) == target) {
         output = true;
     }
-
     return output;
 }
 
