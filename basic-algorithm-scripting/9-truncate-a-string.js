@@ -14,16 +14,20 @@ String.prototype.slice()
 
 
 function truncateString(str, num) {
-    // Clear out that junk in your trunk
+    var dots = "..."
+
+    if (str.length > num) {
+        str = num <= 3 ? str.slice(0, num) + dots : str.slice(0, num - 3) + dots;
+    }
     return str;
-  }
-  
-  truncateString("A-tisket a-tasket A green and yellow basket", 11);
-  
-  // Test
-  truncateString("A-tisket a-tasket A green and yellow basket", 11) // should return "A-tisket...".
-  truncateString("Peter Piper picked a peck of pickled peppers", 14) // should return "Peter Piper...".
-  truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length) // should return "A-tisket a-tasket A green and yellow basket".
-  truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2) // should return "A-tisket a-tasket A green and yellow basket".
-  truncateString("A-", 1) // should return "A...".
-  truncateString("Absolutely Longer", 2) // should return "Ab...".
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 11);
+
+// Test
+truncateString("A-tisket a-tasket A green and yellow basket", 11) // should return "A-tisket...".
+truncateString("Peter Piper picked a peck of pickled peppers", 14) // should return "Peter Piper...".
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length) // should return "A-tisket a-tasket A green and yellow basket".
+truncateString("A-tisket a-tasket A green and yellow basket", "A-tisket a-tasket A green and yellow basket".length + 2) // should return "A-tisket a-tasket A green and yellow basket".
+truncateString("A-", 1) // should return "A...".
+truncateString("Absolutely Longer", 2) // should return "Ab...".
