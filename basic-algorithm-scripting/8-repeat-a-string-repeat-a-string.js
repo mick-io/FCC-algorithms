@@ -13,7 +13,7 @@ function repeatStringNumTimes(str, num) {
     if (num > 0) {
         while (num) {
             output += str;
-            num--
+            num--;
         }
     }
     return output;
