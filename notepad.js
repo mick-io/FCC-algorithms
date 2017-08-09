@@ -1,17 +1,18 @@
-function palindrome(str) {
-    var output = true;
-    str = str.replace(/\W/g, '').toLowerCase();
+function chunkArrayInGroups(arr, size) {
+    var numSubArr = Math.ceil(arr.length / size);
 
-    for (var i = 0, i2d2 = str.length - 1; i <= i2d2; i++, i2d2--) {
-        var element = str[i];
-        var element2 = str[i2d2];
-
-        if (element !== element2) {
-            output = false;
-            break;
+    for (var i = 0; i < numSubArr; i++) {
+        var subArr = [];
+        for (var i2d2 = 0; i2d2 < size; i2d2++) {
+            if (!Array.isArray(arr[0])) {
+                var pop = arr.shift();
+                subArr.push(pop);
+            } else {
+                break;
+            }
         }
+        arr.push(subArr);
     }
-    return output;
-}
 
-palindrome('eye');
+    return arr;
+}
