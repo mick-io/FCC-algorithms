@@ -12,11 +12,14 @@ Array.prototype.splice()
 */
 
 function slasher(arr, howMany) {
-    // it doesn't always pay to be first
+
+    while (howMany && arr[0]) {
+        arr.shift();
+        howMany--;
+    }
     return arr;
 }
 
-slasher([1, 2, 3], 2);
 
 // test
 slasher([1, 2, 3], 2) // should return [3].
