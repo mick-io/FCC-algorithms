@@ -13,14 +13,16 @@ Array.prototype.concat()
 */
 
 function diffArray(arr1, arr2) {
-    var newArr = [];
-    // Same, same; but different.
-    return newArr;
-  }
-  
-  diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+    var inputArray = arr1.concat(arr2);
 
-  // Test
+    var output = inputArray.filter(function (value) {
+        return inputArray.indexOf(value) === inputArray.lastIndexOf(value);
+    });
+
+    return output;
+}
+
+// Test
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]) // should return an array.
 diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]) // should return ["pink wool"].
 diffArray(["andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]) // should return ["diorite", "pink wool"].
