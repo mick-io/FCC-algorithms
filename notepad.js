@@ -1,18 +1,51 @@
-function chunkArrayInGroups(arr, size) {
-    var numSubArr = Math.ceil(arr.length / size);
+/*
+Convert the given number into a roman numeral.
 
-    for (var i = 0; i < numSubArr; i++) {
-        var subArr = [];
-        for (var i2d2 = 0; i2d2 < size; i2d2++) {
-            if (!Array.isArray(arr[0])) {
-                var pop = arr.shift();
-                subArr.push(pop);
-            } else {
-                break;
-            }
-        }
-        arr.push(subArr);
-    }
+All roman numerals answers should be provided in upper-case.
 
-    return arr;
+Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
+
+Here are some helpful links:
+
+    Roman Numerals
+
+    Array.prototype.splice()
+
+    Array.prototype.indexOf()
+
+    Array.prototype.join()
+*/
+
+function convertToRoman(num) {
+  var output = "";
+  var numArray = num
+    .toString()
+    .split("")
+    .reverse();
+
+  for (var i = 0; i < numArray.length; i++) {
+    numArray[i] = parseInt(numArray[i]);
+  }
+
+  return output;
 }
+
+function addNumerals(options) {
+  var input = options.input || 0;
+  var largeNumeral = options.largeNumeral || "";
+  var smallNumeral = options.smallNumeral || "";
+  var output = "";
+
+  while (input) {
+    if (input !== 4) {
+      output += input > 5 ? largeNumeral : smallNumeral;
+    } else {
+      output += smallNumeral + largeNumeral;
+    }
+    input--;
+  }
+
+  return output;
+}
+
+convertToRoman(36);
