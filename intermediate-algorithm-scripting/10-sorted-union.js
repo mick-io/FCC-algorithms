@@ -17,12 +17,22 @@ Array.prototype.reduce()
 
 
 function uniteUnique(arr) {
-    return arr;
-  }
-  
-  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
-  
-  uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]); // should return [1, 3, 2, 5, 4].
-  uniteUnique([1, 3, 2], [1, [5]], [2, [4]]); // should return [1, 3, 2, [5], [4]].
-  uniteUnique([1, 2, 3], [5, 2, 1]); // should return [1, 2, 3, 5].
-  uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]); // should return [1, 2, 3, 5, 4, 6, 7, 8].  
+    var args = Object.values(arguments);
+
+    var flattened = args.reduce(function(out, curr) {
+        return out.concat(curr);
+    }, []);
+
+    var filtered = flattened.filter(function(item, index) {
+        return flattened.indexOf(item) == index;
+    });
+
+    return filtered;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]); // should return [1, 3, 2, 5, 4].
+uniteUnique([1, 3, 2], [1, [5]], [2, [4]]); // should return [1, 3, 2, [5], [4]].
+uniteUnique([1, 2, 3], [5, 2, 1]); // should return [1, 2, 3, 5].
+uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]); // should return [1, 2, 3, 5, 4, 6, 7, 8].
