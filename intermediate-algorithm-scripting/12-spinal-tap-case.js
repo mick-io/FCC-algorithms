@@ -16,7 +16,7 @@ function spinalCase(str) {
         .replace(/([a-z](?=[A-Z]))/g, '$1-')
         .toLowerCase();
 
-    return  str;
+    return str;
 }
 
 spinalCase('This Is Spinal Tap');
