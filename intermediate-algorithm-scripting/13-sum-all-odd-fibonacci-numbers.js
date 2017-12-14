@@ -14,13 +14,24 @@ Remainder
 
 
 function sumFibs(num) {
-    var fibNumber = 0;
+    var value1 = 1;
+    var value2 = 1;
+    var fibNum = 0;
+    var output = 2;
 
-    var fibSequence = (function(){
+    while (fibNum <= num) {
+        if (fibNum % 2 !== 0) {
+            output += fibNum;
+        }
+        
+        fibNum = value1 + value2;
+        value1 = value2;
+        value2 = fibNum;
+        
+    }
 
-    })();
-
-    return num;
+    console.log(output);
+    return output;
 }
 
 sumFibs(4);
