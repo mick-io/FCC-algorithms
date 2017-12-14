@@ -24,7 +24,6 @@ function sumPrimes(num) {
         }
     }
 
-    console.log(output);
     return output;
 }
 
