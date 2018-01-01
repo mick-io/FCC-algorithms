@@ -14,31 +14,31 @@ Remainder
 
 
 function sumFibs(num) {
-    var value1 = 1;
-    var value2 = 1;
-    var fibNum = 0;
-    var output = 2;
+    var fib1 = 1;
+    var fib2 = 1;
+    var cache = 0;
+    var output = 1;
 
-    while (fibNum <= num) {
-        if (fibNum % 2 !== 0) {
-            output += fibNum;
+    while (fib2 <= num) {
+        if (fib2 % 2 !== 0) {
+            output += fib2;
         }
-        
-        fibNum = value1 + value2;
-        value1 = value2;
-        value2 = fibNum;
-        
+
+        cache = fib2;
+        fib2 = fib1 + fib2;
+        fib1 = cache;
     }
 
-    console.log(output);
+    console.log(output)
     return output;
 }
 
-sumFibs(4);
+// sumFibs(10);
+// sumFibs(4);
 
 sumFibs(1) // should return a number.
 sumFibs(1000) // should return 1785.
-sumFibs(4000000) // should return 4613732.
+sumFibs(4000000) // should return 461373.
 sumFibs(4) // should return 5.
 sumFibs(75024) // should return 60696.
 sumFibs(75025) // should return 135721.
