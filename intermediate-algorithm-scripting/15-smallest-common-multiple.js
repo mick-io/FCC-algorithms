@@ -33,7 +33,6 @@ function smallestCommons(arr) {
     multiplier++;
   } while (!checkIfLcm(smallestNumber, largestNumber, multiple));
 
-  console.log(multiple);
   return multiple;
 }
 
