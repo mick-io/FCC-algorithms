@@ -22,24 +22,26 @@ Arguments object
 function addTogether() {
     var firstArg = arguments[0];
     var secondArg = arguments[1];
-    var output = 0;
 
     var condition1 = typeof firstArg === "number";
     var condition2 = typeof secondArg === "number";
     var condition3 = typeof secondArg === undefined;
 
+    var noSecondArgFunc = function(value){
+        return value + firstArg;
+    }
 
     if (condition1 && condition2) {
-        output = firstArg + secondArg;
-    } else if (condition1 && condition3) {
-        output = function (value) {
-            return firstArg + value;
-        }
-    } else {
-        output = undefined
+        return firstArg + secondArg;
     }
-    return output;
+
+    if (condition1 && condition3) {
+        return noSecondArgFunc;
+    }
+    return undefined;
 }
+
+
 
 addTogether(2, 3) // should return 5.
 // addTogether(2)(3) // should return 5.
