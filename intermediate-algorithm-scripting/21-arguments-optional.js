@@ -23,28 +23,24 @@ function addTogether() {
     var firstArg = arguments[0];
     var secondArg = arguments[1];
 
-    var condition1 = typeof firstArg === "number";
-    var condition2 = typeof secondArg === "number";
-    var condition3 = typeof secondArg === undefined;
+    var firstArgIsNumber = typeof firstArg === "number";
+    var secondArgIsNumber = typeof secondArg === "number";
 
-    var noSecondArgFunc = function(value){
-        return value + firstArg;
-    }
-
-    if (condition1 && condition2) {
+    if (firstArgIsNumber && secondArgIsNumber) {
         return firstArg + secondArg;
+    } else if (!secondArg && firstArgIsNumber) {
+        return function (value) {
+            return typeof value === "number" ? value + firstArg : undefined;
+        };
+    } else {
+        return undefined;
     }
-
-    if (condition1 && condition3) {
-        return noSecondArgFunc;
-    }
-    return undefined;
 }
 
 
-
-addTogether(2, 3) // should return 5.
+console.log(addTogether(2)([3]));
+// addTogether(2, 3) // should return 5.
 // addTogether(2)(3) // should return 5.
-addTogether("http://bit.ly/IqT6zt") // should return undefined.
-addTogether(2, "3") // should return undefined.
+// addTogether("http://bit.ly/IqT6zt") // should return undefined.
+// addTogether(2, "3") // should return undefined.
 // addTogether(2)([3]) // should return undefined.
