@@ -60,7 +60,7 @@ function returnChange(changeDue, cid) {
       changeDue -= currencyValue;
 
       isChangeDueDivisible = amountOfCurrency >= changeDue + currencyValue;
-      isCashTypeAvailable = amountOfCurrency > 0;
+      isCurrencyAvailable = amountOfCurrency > 0;
     }
 
     change.push([currency, changeInCurrency]);
