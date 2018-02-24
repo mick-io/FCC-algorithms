@@ -26,20 +26,22 @@ function getDifferences(accumulator, currentValue, currentIndex, originalArray) 
   var indexInAccumulator = accumulator.indexOf(currentValue);
   var isSymmetricDiff = indexInAccumulator !== -1;
   var nextIndex = currentIndex + 1;
-
-  while (true) {
-    var nextValue = originalArray[nextIndex];
-    var isEqualToNextValue = currentValue === nextValue;
-
-    if (isEqualToNextValue) {
-      originalArray.splice(nextIndex, 1);
-    } else {
-      break;
-    }
+  var nextValue = originalArray[nextIndex];
+  var isEqualToNextValue = currentValue === nextValue;
+  
+  while (isEqualToNextValue) {
+    originalArray.splice(nextIndex, 1);
+    nextValue = originalArray[nextIndex];
+    isEqualToNextValue = currentValue === nextValue;
   }
 
-  isSymmetricDiff ? accumulator.splice(indexInAccumulator, 1) : accumulator.push(currentValue);
-  return accumulator
+  if (isSymmetricDiff) {
+    accumulator.splice(indexInAccumulator, 1);
+  } else {
+    accumulator.push(currentValue);
+  }
+  
+  return accumulator;
 }
 
 sym([1, 2, 3], [5, 2, 1, 4]) // should return [3, 4, 5].
