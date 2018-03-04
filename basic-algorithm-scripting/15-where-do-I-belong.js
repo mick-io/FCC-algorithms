@@ -13,38 +13,36 @@ Array.prototype.sort()
 */
 
 function compareNums(a, b) {
-    return a - b;
+  return a - b;
 }
 
 function getIndexToIns(arr, num) {
-    var length = arr.length;
-    var output = 0;
+  var length = arr.length;
+  var output = 0;
 
-    arr = arr.sort(compareNums);
+  arr = arr.sort(compareNums);
 
-    if (num <= arr[0]) {
-        output = 0;
-    } else if (num > arr[length - 1]) {
-        output = length;
-    } else {
-        for (var i = 1; i < length; i++) {
-            if (num >= arr[i - 1] && num <= arr[i]) {
-                output = i;
-                break;
-            }
-        }
+  if (num <= arr[0]) {
+    output = 0;
+  } else if (num > arr[length - 1]) {
+    output = length;
+  } else {
+    for (var i = 1; i < length; i++) {
+      if (num >= arr[i - 1] && num <= arr[i]) {
+        output = i;
+        break;
+      }
     }
-    return output;
+  }
+  return output;
 }
-
-
 
 // Test
 getIndexToIns([40, 60], 50); // should return 1
-getIndexToIns([10, 20, 30, 40, 50], 35) // should return 3.
-getIndexToIns([10, 20, 30, 40, 50], 30) // should return 2.
-getIndexToIns([40, 60], 50) // should return 1.
-getIndexToIns([3, 10, 5], 3) // should return 0.
-getIndexToIns([5, 3, 20, 3], 5) // should return 2.
-getIndexToIns([2, 20, 10], 19) // should return 2.
-getIndexToIns([2, 5, 10], 15) // should return 3.
+getIndexToIns([10, 20, 30, 40, 50], 35); // should return 3.
+getIndexToIns([10, 20, 30, 40, 50], 30); // should return 2.
+getIndexToIns([40, 60], 50); // should return 1.
+getIndexToIns([3, 10, 5], 3); // should return 0.
+getIndexToIns([5, 3, 20, 3], 5); // should return 2.
+getIndexToIns([2, 20, 10], 19); // should return 2.
+getIndexToIns([2, 5, 10], 15); // should return 3.

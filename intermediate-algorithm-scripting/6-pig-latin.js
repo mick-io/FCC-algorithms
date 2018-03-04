@@ -19,37 +19,36 @@ String.prototype.split()
 */
 
 function translatePigLatin(str) {
-    var vowelIndex = firstVowelIndex(str);
-    var frontSlice = str.slice(vowelIndex, str.length);
-    var backSlice = str.slice(0, vowelIndex);
-    var suffix = vowelIndex === 0 ? "way" : "ay";
-
-    console.log(frontSlice + backSlice + suffix);
-    return frontSlice + backSlice + suffix;
+  var vowelIndex = firstVowelIndex(str);
+  var frontSlice = str.slice(vowelIndex, str.length);
+  var backSlice = str.slice(0, vowelIndex);
+  var suffix = vowelIndex === 0 ? "way" : "ay";
+  
+  return frontSlice + backSlice + suffix;
 }
 
 function firstVowelIndex(str) {
-    var vowels = ['a', 'e', 'i', 'o', 'u'];
-    var len = str.length;
-    var i = 0;
-    var output = -1;
-    var char = "";
+  var vowels = ["a", "e", "i", "o", "u"];
+  var len = str.length;
+  var i = 0;
+  var output = -1;
+  var char = "";
 
-    while (i < len) {
-        char = str.charAt(i);
-        if (vowels.indexOf(char) > -1) {
-            output = i;
-            break;
-        }
-        i++;
+  while (i < len) {
+    char = str.charAt(i);
+    if (vowels.indexOf(char) > -1) {
+      output = i;
+      break;
     }
-    return output;
+    i++;
+  }
+  return output;
 }
 
 translatePigLatin("consonant");
 
-translatePigLatin("california") // should return "aliforniacay".
-translatePigLatin("paragraphs") // should return "aragraphspay".
-translatePigLatin("glove") // should return "oveglay".
-translatePigLatin("algorithm") // should return "algorithmway".
-translatePigLatin("eight") // should return "eightway".
+translatePigLatin("california"); // should return "aliforniacay".
+translatePigLatin("paragraphs"); // should return "aragraphspay".
+translatePigLatin("glove"); // should return "oveglay".
+translatePigLatin("algorithm"); // should return "algorithmway".
+translatePigLatin("eight"); // should return "eightway".

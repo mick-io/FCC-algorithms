@@ -18,17 +18,16 @@ String.prototype.replace()
 Array.prototype.join()
 */
 
-
 function myReplace(str, before, after) {
-    var arr = str.split(' ');
-    var index = arr.indexOf(before);
+  var arr = str.split(" ");
+  var index = arr.indexOf(before);
 
-    if (before.charAt(0) === before.charAt(0).toUpperCase()) {
-        after = after.charAt(0).toUpperCase() + after.slice(1);
-    }
-    
-    arr[index] = after;
-    return arr.join(' ');
+  if (before.charAt(0) === before.charAt(0).toUpperCase()) {
+    after = after.charAt(0).toUpperCase() + after.slice(1);
+  }
+
+  arr[index] = after;
+  return arr.join(" ");
 }
 
 myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");

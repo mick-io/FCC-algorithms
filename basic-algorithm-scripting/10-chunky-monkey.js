@@ -9,20 +9,19 @@ Array.prototype.push()
 Array.prototype.slice()
 */
 
-
 function chunkArrayInGroups(arr, size) {
-    var numSubArr = Math.ceil(arr.length / size);
-    var begin = 0;
-    var end = size;
-    var output = [];
+  var numSubArr = Math.ceil(arr.length / size);
+  var begin = 0;
+  var end = size;
+  var output = [];
 
-    for (var i = 0; i < numSubArr; i++) {
-        var slice = arr.slice(begin, end);
-        output.push(slice);
-        begin = end;
-        end += size;
-    }
-    return output;
+  for (var i = 0; i < numSubArr; i++) {
+    var slice = arr.slice(begin, end);
+    output.push(slice);
+    begin = end;
+    end += size;
+  }
+  return output;
 }
 
 // chunkArrayInGroups(["a", "b", "c", "d"], 2);
@@ -34,4 +33,4 @@ function chunkArrayInGroups(arr, size) {
 // chunkArrayInGroups([0, 1, 2, 3, 4, 5], 4) // should return [[0, 1, 2, 3], [4, 5]].
 // chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3) // should return [[0, 1, 2], [3, 4, 5], [6]].
 // chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 4) // should return [[0, 1, 2, 3], [4, 5, 6, 7], [8]].
-chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2) // should return [[0, 1], [2, 3], [4, 5], [6, 7], [8]].
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6, 7, 8], 2); // should return [[0, 1], [2, 3], [4, 5], [6, 7], [8]].

@@ -15,11 +15,10 @@ String.prototype.indexOf()
 
 */
 
-
 function mutation(arr) {
   var output = true;
-  var firstStr = arr[0].toLowerCase().split('');
-  var secondStr = arr[1].toLowerCase().split('');
+  var firstStr = arr[0].toLowerCase().split("");
+  var secondStr = arr[1].toLowerCase().split("");
 
   for (var i = 0; i < secondStr.length; i++) {
     if (firstStr.indexOf(secondStr[i]) === -1) {
@@ -30,15 +29,13 @@ function mutation(arr) {
   return output;
 }
 
-
-
 // Test
-mutation(["hello", "hey"]) // should return false.
-mutation(["hello", "Hello"]) // should return true.
-mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]) // should return true.
-mutation(["Mary", "Army"]) // should return true.
-mutation(["Mary", "Aarmy"]) // should return true.
-mutation(["Alien", "line"]) // should return true.
-mutation(["floor", "for"]) // should return true.
-mutation(["hello", "neo"]) // should return false.
-mutation(["voodoo", "no"]) // should return false.
+mutation(["hello", "hey"]); // should return false.
+mutation(["hello", "Hello"]); // should return true.
+mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"]); // should return true.
+mutation(["Mary", "Army"]); // should return true.
+mutation(["Mary", "Aarmy"]); // should return true.
+mutation(["Alien", "line"]); // should return true.
+mutation(["floor", "for"]); // should return true.
+mutation(["hello", "neo"]); // should return false.
+mutation(["voodoo", "no"]); // should return false.

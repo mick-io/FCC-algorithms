@@ -16,7 +16,7 @@ function whatIsInAName(collection, source) {
   var arr = [];
   var props = Object.keys(source);
 
-  var isMatch = function (obj) {
+  var isMatch = function(obj) {
     var output = true;
 
     for (var i = 0; i < props.length; i++) {
@@ -27,7 +27,7 @@ function whatIsInAName(collection, source) {
       }
     }
     return output;
-  }
+  };
 
   for (var index = 0; index < collection.length; index++) {
     if (isMatch(collection[index])) {
@@ -38,53 +38,79 @@ function whatIsInAName(collection, source) {
   return arr;
 }
 
-
-
-whatIsInAName([{
-  first: "Romeo",
-  last: "Montague"
-}, {
-  first: "Mercutio",
-  last: null
-}, {
-  first: "Tybalt",
-  last: "Capulet"
-}], {
-  last: "Capulet"
-}) // should return [{ first: "Tybalt", last: "Capulet" }].
-whatIsInAName([{
-  "a": 1
-}, {
-  "a": 1
-}, {
-  "a": 1,
-  "b": 2
-}], {
-  "a": 1
-}) // should return [{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }].
-whatIsInAName([{
-  "a": 1,
-  "b": 2
-}, {
-  "a": 1
-}, {
-  "a": 1,
-  "b": 2,
-  "c": 2
-}], {
-  "a": 1,
-  "b": 2
-}) // should return [{ "a": 1, "b": 2 }, { "a": 1, "b": 2, "c": 2 }].
-whatIsInAName([{
-  "a": 1,
-  "b": 2
-}, {
-  "a": 1
-}, {
-  "a": 1,
-  "b": 2,
-  "c": 2
-}], {
-  "a": 1,
-  "c": 2
-}) // should return [{ "a": 1, "b": 2, "c": 2 }].
+whatIsInAName(
+  [
+    {
+      first: "Romeo",
+      last: "Montague"
+    },
+    {
+      first: "Mercutio",
+      last: null
+    },
+    {
+      first: "Tybalt",
+      last: "Capulet"
+    }
+  ],
+  {
+    last: "Capulet"
+  }
+); // should return [{ first: "Tybalt", last: "Capulet" }].
+whatIsInAName(
+  [
+    {
+      a: 1
+    },
+    {
+      a: 1
+    },
+    {
+      a: 1,
+      b: 2
+    }
+  ],
+  {
+    a: 1
+  }
+); // should return [{ "a": 1 }, { "a": 1 }, { "a": 1, "b": 2 }].
+whatIsInAName(
+  [
+    {
+      a: 1,
+      b: 2
+    },
+    {
+      a: 1
+    },
+    {
+      a: 1,
+      b: 2,
+      c: 2
+    }
+  ],
+  {
+    a: 1,
+    b: 2
+  }
+); // should return [{ "a": 1, "b": 2 }, { "a": 1, "b": 2, "c": 2 }].
+whatIsInAName(
+  [
+    {
+      a: 1,
+      b: 2
+    },
+    {
+      a: 1
+    },
+    {
+      a: 1,
+      b: 2,
+      c: 2
+    }
+  ],
+  {
+    a: 1,
+    c: 2
+  }
+); // should return [{ "a": 1, "b": 2, "c": 2 }].

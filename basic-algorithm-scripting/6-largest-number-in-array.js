@@ -11,37 +11,37 @@ Comparison Operators
 */
 
 function largestOfFour(arr) {
-    var output = [];
+  var output = [];
 
-    for (var i = 0; i < 4; i++) {
-        var largest = arr[i][0];
-        for (var i2d2 = 1; i2d2 < 4; i2d2++) {
-            if(largest < arr[i][i2d2]){
-                largest = arr[i][i2d2];
-            }
-        }
-        output.push(largest);
+  for (var i = 0; i < 4; i++) {
+    var largest = arr[i][0];
+    for (var i2d2 = 1; i2d2 < 4; i2d2++) {
+      if (largest < arr[i][i2d2]) {
+        largest = arr[i][i2d2];
+      }
     }
+    output.push(largest);
+  }
 
-    console.log(output);
-    return output;
+  console.log(output);
+  return output;
 }
 
 largestOfFour([
-    [4, 5, 1, 3],
-    [13, 27, 18, 26],
-    [32, 35, 37, 39],
-    [1000, 1001, 857, 1]
+  [4, 5, 1, 3],
+  [13, 27, 18, 26],
+  [32, 35, 37, 39],
+  [1000, 1001, 857, 1]
 ]); // should return an array.
 largestOfFour([
-    [13, 27, 18, 26],
-    [4, 5, 1, 3],
-    [32, 35, 37, 39],
-    [1000, 1001, 857, 1]
+  [13, 27, 18, 26],
+  [4, 5, 1, 3],
+  [32, 35, 37, 39],
+  [1000, 1001, 857, 1]
 ]); //  should return [27,5,39,1001].
 largestOfFour([
-    [4, 9, 1, 3],
-    [13, 35, 18, 26],
-    [32, 35, 97, 39],
-    [1000000, 1001, 857, 1]
+  [4, 9, 1, 3],
+  [13, 35, 18, 26],
+  [32, 35, 97, 39],
+  [1000000, 1001, 857, 1]
 ]); //should return [9, 35, 97, 1000000]

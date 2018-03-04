@@ -13,33 +13,31 @@ For Loops
 Array.prototype.push()
 */
 
-
-
 function sumPrimes(num) {
-    var output = 0;
+  var output = 0;
 
-    for (var i = 2; i <= num; i++) {
-        if (isPrime(i)) {
-            output += i;
-        }
+  for (var i = 2; i <= num; i++) {
+    if (isPrime(i)) {
+      output += i;
     }
+  }
 
-    return output;
+  return output;
 }
 
 function isPrime(value) {
-    var output = true;
+  var output = true;
 
-    for (var i = 2; i < value; i++) {
-        if (value % i === 0) {
-            output = false;
-            break;
-        }
+  for (var i = 2; i < value; i++) {
+    if (value % i === 0) {
+      output = false;
+      break;
     }
+  }
 
-    return output;
+  return output;
 }
 
-sumPrimes(10) // should return a number.
-sumPrimes(10) // should return 17.
-sumPrimes(977) // should return 73156.
+sumPrimes(10); // should return a number.
+sumPrimes(10); // should return 17.
+sumPrimes(977); // should return 73156.

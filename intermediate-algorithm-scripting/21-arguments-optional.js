@@ -20,23 +20,22 @@ Arguments object
 */
 
 function addTogether() {
-    var firstArg = arguments[0];
-    var secondArg = arguments[1];
+  var firstArg = arguments[0];
+  var secondArg = arguments[1];
 
-    var firstArgIsNumber = typeof firstArg === "number";
-    var secondArgIsNumber = typeof secondArg === "number";
+  var firstArgIsNumber = typeof firstArg === "number";
+  var secondArgIsNumber = typeof secondArg === "number";
 
-    if (firstArgIsNumber && secondArgIsNumber) {
-        return firstArg + secondArg;
-    } else if (!secondArg && firstArgIsNumber) {
-        return function (value) {
-            return typeof value === "number" ? value + firstArg : undefined;
-        };
-    } else {
-        return undefined;
-    }
+  if (firstArgIsNumber && secondArgIsNumber) {
+    return firstArg + secondArg;
+  } else if (!secondArg && firstArgIsNumber) {
+    return function(value) {
+      return typeof value === "number" ? value + firstArg : undefined;
+    };
+  } else {
+    return undefined;
+  }
 }
-
 
 console.log(addTogether(2)([3]));
 // addTogether(2, 3) // should return 5.

@@ -14,18 +14,18 @@ Array.prototype.reduce()
 */
 
 function sumAll(arr) {
-    var largerNum = Math.max(arr[0],arr[1]);
-    var smallerNum = Math.min(arr[0], arr[1]);
-    var output = 0;
+  var largerNum = Math.max(arr[0], arr[1]);
+  var smallerNum = Math.min(arr[0], arr[1]);
+  var output = 0;
 
-    for (var i = smallerNum; i <= largerNum; i++) {
-        output += i;
-    }
-    return output;
+  for (var i = smallerNum; i <= largerNum; i++) {
+    output += i;
+  }
+  return output;
 }
 
-// Test 
-sumAll([1, 4]) // should return 10.
-sumAll([4, 1]) // should return 10.
-sumAll([5, 10]) // should return 45.
-sumAll([10, 5]) // should return 45.
+// Test
+sumAll([1, 4]); // should return 10.
+sumAll([4, 1]); // should return 10.
+sumAll([5, 10]); // should return 45.
+sumAll([10, 5]); // should return 45.

@@ -15,8 +15,8 @@ String.prototype.charCodeAt()
 String.fromCharCode()
 */
 
-
-function rot13(str) { // LBH QVQ VG!
+function rot13(str) {
+  // LBH QVQ VG!
   var charCodes = [];
 
   for (var i = 0; i < str.length; i++) {
@@ -29,14 +29,14 @@ function rot13(str) { // LBH QVQ VG!
       charCodes[i] = String.fromCharCode(charCodes[i]);
     }
   }
-  console.log(charCodes.join(''));
-  str = charCodes.join('');
+  console.log(charCodes.join(""));
+  str = charCodes.join("");
   return str;
 }
 
 // Change the inputs below to test
 // Test
-rot13("SERR PBQR PNZC") // should decode to "FREE CODE CAMP"
-rot13("SERR CVMMN!") // should decode to "FREE PIZZA!"
-rot13("SERR YBIR?") // should decode to "FREE LOVE?"
-rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK.") // should decode to "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."
+rot13("SERR PBQR PNZC"); // should decode to "FREE CODE CAMP"
+rot13("SERR CVMMN!"); // should decode to "FREE PIZZA!"
+rot13("SERR YBIR?"); // should decode to "FREE LOVE?"
+rot13("GUR DHVPX OEBJA QBT WHZCRQ BIRE GUR YNML SBK."); // should decode to "THE QUICK BROWN DOG JUMPED OVER THE LAZY FOX."

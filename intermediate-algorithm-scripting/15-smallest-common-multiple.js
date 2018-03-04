@@ -14,23 +14,6 @@ Smallest Common Multiple
 
 
 function smallestCommons(arr) {
-<<<<<<< HEAD
-    var smallerNumber = arr[0] > arr[1] ? arr[1] : arr[0];
-    var largerNumber = smallerNumber === arr[0] ? arr[1] : arr[0];
-    var index = smallerNumber;
-    var output = 0;
-
-    while (index > largerNumber) {
-        output = index * index + 1;
-        index++;
-    }
-
-    output = output / 2;
-
-    console.log(output);
-
-    return output;
-=======
   var largestNumber = 0;
   var smallestNumber = 0;
   var multiple = 0;
@@ -64,7 +47,6 @@ function checkIfLcm(smallestNumber, largestNumber, multiple) {
     }
   }
   return isLcm;
->>>>>>> 33f6f53f56c085f0a02d017dfb895878379cac30
 }
 
 smallestCommons([1, 5]) // should return 60.

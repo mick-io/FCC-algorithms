@@ -11,15 +11,15 @@ String.prototype.split()
 */
 
 function titleCase(str) {
-    str = str.split(' ');
+  str = str.split(" ");
 
-    for (var i = 0; i < str.length; i++) {
-        str[i] = str[i].toLowerCase().split('');
-        str[i][0] = str[i][0].toUpperCase();
-        str[i] = str[i].join('');
-    }
+  for (var i = 0; i < str.length; i++) {
+    str[i] = str[i].toLowerCase().split("");
+    str[i][0] = str[i][0].toUpperCase();
+    str[i] = str[i].join("");
+  }
 
-    return str.join(' ');
+  return str.join(" ");
 }
 
 titleCase("I'm a little tea pot");

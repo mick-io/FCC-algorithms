@@ -13,38 +13,37 @@ Array.prototype.indexOf()
 Array.prototype.join()
 */
 
-
 function convertToRoman(input) {
-    var output = "";
-    var romanNumerals = {
-        M: 1000,
-        CM: 900,
-        D: 500,
-        C: 100,
-        XC: 90,
-        L: 50,
-        XL: 40,
-        X: 10,
-        IX: 9,
-        V: 5,
-        IV: 4,
-        I: 1
-    };
-    var romanCharacters = Object.keys(romanNumerals);
-    var char = "";
-    var number = 0;
+  var output = "";
+  var romanNumerals = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1
+  };
+  var romanCharacters = Object.keys(romanNumerals);
+  var char = "";
+  var number = 0;
 
-    for (var i = 0; i <= romanCharacters.length; i++) {
-        char = romanCharacters[i];
-        number = romanNumerals[romanCharacters[i]];
+  for (var i = 0; i <= romanCharacters.length; i++) {
+    char = romanCharacters[i];
+    number = romanNumerals[romanCharacters[i]];
 
-        while (input - number >= 0) {
-            output += char;
-            input -= number;
-        }
+    while (input - number >= 0) {
+      output += char;
+      input -= number;
     }
+  }
 
-    return output;
+  return output;
 }
 
 /* Test */

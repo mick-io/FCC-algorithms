@@ -12,21 +12,21 @@ String.fromCharCode()
 */
 
 function fearNotLetter(str) {
-    var index = str.charCodeAt(0);
-    var last = str.charCodeAt(str.length - 1);
-    var output = "";
+  var index = str.charCodeAt(0);
+  var last = str.charCodeAt(str.length - 1);
+  var output = "";
 
-    while (index < last) {
-        var value = String.fromCharCode(index);
+  while (index < last) {
+    var value = String.fromCharCode(index);
 
-        if (str.indexOf(value) < 0) {
-            output += value;
-        }
-
-        index++;
+    if (str.indexOf(value) < 0) {
+      output += value;
     }
 
-    return output || undefined;
+    index++;
+  }
+
+  return output || undefined;
 }
 
 fearNotLetter("abce");

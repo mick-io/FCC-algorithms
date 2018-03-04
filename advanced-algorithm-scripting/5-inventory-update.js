@@ -6,32 +6,30 @@ The returned inventory array should be in alphabetical order by item.
 
 Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write your own code.
 
-Here are some helpful links:
-
-    Global Array Object    
+    Global Array Object
 */
 
 function updateInventory(inventory, deliveries) {
+  var updatedInventory = [];
   var amountIndex = 0;
   var deleteCount = 1;
   var nameIndex = 1;
-  var updatedInventory = [];
 
-  deliveries.map(function (item) {
-    var itemName = item[nameIndex];
-    var itemAmount = item[amountIndex];
+  deliveries.map(function(item) {
+    var itemDelivered = item[nameIndex];
+    var amountDelivered = item[amountIndex];
 
-    for (var i = 0, len = deliveries.length; i < len; i++) {
-      var deliveredItem = deliveries[i];
-      var deliveredItemName = deliveredItem[nameIndex];
+    for (var i = 0, len = inventory.length; i < len; i++) {
+      var inventoryItem = inventory[i][nameIndex];
+      var deliveryMatchesInventory = itemDelivered === inventoryItem;
 
-      if (itemName === deliveredItemName) {
-        itemAmount += deliveredItem[amountIndex];
+      if (deliveryMatchesInventory) {
+        amountDelivered += inventory[i][amountIndex];
         deliveries.splice(i, deleteCount);
         break;
       }
     }
-    updatedInventory.push([itemAmount, itemName]);
+    updatedInventory.push([amountDelivered, inventoryItem]);
   });
 
   return updateInventory;
@@ -54,17 +52,15 @@ function updateInventory(inventory, deliveries) {
 //   [7, "Toothpaste"]
 // ]).length; // should return an array with a length of 6.
 
-updateInventory([
-  [21, "Bowling Ball"],
-  [2, "Dirty Sock"],
-  [1, "Hair Pin"],
-  [5, "Microphone"]
-], [
-  [2, "Hair Pin"],
-  [3, "Half-Eaten Apple"],
-  [67, "Bowling Ball"],
-  [7, "Toothpaste"]
-]); // should return [[88, "Bowling Ball"], [2, "Dirty Sock"], [3, "Hair Pin"], [3, "Half-Eaten Apple"], [5, "Microphone"], [7, "Toothpaste"]].
+updateInventory(
+  [[21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]],
+  [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+  ]
+); // should return [[88, "Bowling Ball"], [2, "Dirty Sock"], [3, "Hair Pin"], [3, "Half-Eaten Apple"], [5, "Microphone"], [7, "Toothpaste"]].
 
 // updateInventory([
 //   [21, "Bowling Ball"],

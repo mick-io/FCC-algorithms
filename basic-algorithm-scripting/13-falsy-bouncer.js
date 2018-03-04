@@ -11,20 +11,19 @@ Boolean Objects
 Array.prototype.filter()
 */
 
-
 function bouncer(arr) {
-    for (var i = 0; i < arr.length; i++) {
-        var iteration = arr[i];
-        if (!iteration) {
-            arr.splice(i, 1);
-            i--;
-        }
+  for (var i = 0; i < arr.length; i++) {
+    var iteration = arr[i];
+    if (!iteration) {
+      arr.splice(i, 1);
+      i--;
     }
-    return arr;
+  }
+  return arr;
 }
 
 // Test
-bouncer([7, "ate", "", false, 9]) // should return [7, "ate", 9].
-bouncer(["a", "b", "c"]) // should return ["a", "b", "c"].
-bouncer([false, null, 0, NaN, undefined, ""]) // should return [].
-bouncer([1, null, NaN, 2, undefined]) // should return [1, 2].
+bouncer([7, "ate", "", false, 9]); // should return [7, "ate", 9].
+bouncer(["a", "b", "c"]); // should return ["a", "b", "c"].
+bouncer([false, null, 0, NaN, undefined, ""]); // should return [].
+bouncer([1, null, NaN, 2, undefined]); // should return [1, 2].

@@ -14,9 +14,7 @@ Array.prototype.shift()
 Array.prototype.slice()
 */
 
-
 function dropElements(arr, func) {
-
   for (var i = 0, len = arr.length; i < len; i++) {
     var frontElement = arr.shift();
     var predicate = func(frontElement);
@@ -29,26 +27,26 @@ function dropElements(arr, func) {
   return arr;
 }
 
-dropElements([1, 2, 3, 4], function (n) {
+dropElements([1, 2, 3, 4], function(n) {
   return n >= 3;
-}) // should return [3, 4].
+}); // should return [3, 4].
 
-dropElements([0, 1, 0, 1], function (n) {
+dropElements([0, 1, 0, 1], function(n) {
   return n === 1;
-}) // should return [1, 0, 1].
+}); // should return [1, 0, 1].
 
-dropElements([1, 2, 3], function (n) {
+dropElements([1, 2, 3], function(n) {
   return n > 0;
-}) // should return [1, 2, 3].
+}); // should return [1, 2, 3].
 
-dropElements([1, 2, 3, 4], function (n) {
+dropElements([1, 2, 3, 4], function(n) {
   return n > 5;
-}) // should return [].
+}); // should return [].
 
-dropElements([1, 2, 3, 7, 4], function (n) {
+dropElements([1, 2, 3, 7, 4], function(n) {
   return n > 3;
-}) // should return [7, 4].
+}); // should return [7, 4].
 
-dropElements([1, 2, 3, 9, 2], function (n) {
+dropElements([1, 2, 3, 9, 2], function(n) {
   return n > 2;
-}) // should return [3, 9, 2].
+}); // should return [3, 9, 2].

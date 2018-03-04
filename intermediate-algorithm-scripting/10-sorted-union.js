@@ -15,19 +15,18 @@ Arguments object
 Array.prototype.reduce()
 */
 
-
 function uniteUnique(arr) {
-    var args = Object.values(arguments);
+  var args = Object.values(arguments);
 
-    var flattened = args.reduce(function(out, curr) {
-        return out.concat(curr);
-    }, []);
+  var flattened = args.reduce(function(out, curr) {
+    return out.concat(curr);
+  }, []);
 
-    var filtered = flattened.filter(function(item, index) {
-        return flattened.indexOf(item) == index;
-    });
+  var filtered = flattened.filter(function(item, index) {
+    return flattened.indexOf(item) == index;
+  });
 
-    return filtered;
+  return filtered;
 }
 
 uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]); // should return [1, 3, 2, 5, 4].
