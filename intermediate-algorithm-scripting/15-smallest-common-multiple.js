@@ -12,7 +12,6 @@ Here are some helpful links:
 Smallest Common Multiple
 */
 
-
 function smallestCommons(arr) {
   var largestNumber = 0;
   var smallestNumber = 0;
@@ -36,7 +35,6 @@ function smallestCommons(arr) {
   return multiple;
 }
 
-
 function checkIfLcm(smallestNumber, largestNumber, multiple) {
   var isLcm = true;
 
@@ -49,7 +47,7 @@ function checkIfLcm(smallestNumber, largestNumber, multiple) {
   return isLcm;
 }
 
-smallestCommons([1, 5]) // should return 60.
-smallestCommons([5, 1]) // should return 60.
-smallestCommons([1, 13]) // should return 360360.
-smallestCommons([23, 18]) // should return 6056820.
+smallestCommons([1, 5]); // should return 60.
+smallestCommons([5, 1]); // should return 60.
+smallestCommons([1, 13]); // should return 360360.
+smallestCommons([23, 18]); // should return 6056820.

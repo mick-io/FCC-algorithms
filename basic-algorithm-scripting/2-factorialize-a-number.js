@@ -14,7 +14,6 @@ Here are some helpful links:
 Arithmetic Operators
 */
 
-
 function factorialize(num) {
   var output = 1;
   for (var i = num; i > 0; i--) {
@@ -25,7 +24,7 @@ function factorialize(num) {
 
 factorialize(5);
 
-// OR 
+// OR
 
 function factorialRecursion(n) {
   if (n === 0) {

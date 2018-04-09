@@ -23,7 +23,7 @@ function translatePigLatin(str) {
   var frontSlice = str.slice(vowelIndex, str.length);
   var backSlice = str.slice(0, vowelIndex);
   var suffix = vowelIndex === 0 ? "way" : "ay";
-  
+
   return frontSlice + backSlice + suffix;
 }
 

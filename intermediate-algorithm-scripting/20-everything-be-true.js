@@ -99,7 +99,7 @@ truthCheck(
       onBoat: true
     },
     {
-      name: "FastFoward",
+      name: "FastForward",
       onBoat: null
     }
   ],
@@ -115,10 +115,10 @@ truthCheck(
     {
       name: "Repeat",
       onBoat: true,
-      alias: "Repete"
+      alias: "Repeat"
     },
     {
-      name: "FastFoward",
+      name: "FastForward",
       onBoat: true
     }
   ],

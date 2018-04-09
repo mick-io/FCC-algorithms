@@ -9,7 +9,7 @@ Index	0	1	2	3	4
 Value	7	9	11	13	15
 Below we'll take their corresponding indices and add them.
 
-7 + 13 = 20 → Indices 0 + 3 = 3
+7 + 13 = 20 → Indices 0 + 3 = 3s
 9 + 11 = 20 → Indices 1 + 2 = 3
 3 + 3 = 6 → Return 6
 
@@ -25,7 +25,6 @@ function pairwise(arr, arg) {
 }
 
 pairwise([1, 4, 2, 3, 0, 5], 7);
-
 
 pairwise([1, 4, 2, 3, 0, 5], 7); // should return 11.
 pairwise([1, 3, 2, 4], 4); // should return 1.
