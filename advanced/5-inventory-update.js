@@ -10,48 +10,33 @@ Remember to use Read-Search-Ask if you get stuck. Try to pair program. Write you
 */
 
 function updateInventory(inventory, deliveries) {
-  var updatedInventory = [];
-  var amountIndex = 0;
-  var deleteCount = 1;
-  var nameIndex = 1;
-
-  deliveries.map(function(item) {
-    var itemDelivered = item[nameIndex];
-    var amountDelivered = item[amountIndex];
+  deliveries.map(function(delivery) {
+    var deliveryAmount = delivery[0];
+    var deliveryName = delivery[1];
 
     for (var i = 0, len = inventory.length; i < len; i++) {
-      var inventoryItem = inventory[i][nameIndex];
-      var deliveryMatchesInventory = itemDelivered === inventoryItem;
+      var inventoryName = inventory[i][1];
+      var isInventoried = deliveryName === inventoryName;
+      var isAlphabeticalNext = inventoryName > deliveryName;
 
-      if (deliveryMatchesInventory) {
-        amountDelivered += inventory[i][amountIndex];
-        deliveries.splice(i, deleteCount);
-        break;
+      if (isInventoried) {
+        inventory[i][0] += deliveryAmount;
+        return;
+      }
+
+      if (isAlphabeticalNext) {
+        inventory.splice(i, 0, delivery);
+        return;
       }
     }
-    updatedInventory.push([amountDelivered, inventoryItem]);
+
+    inventory.push(delivery);
   });
 
-  return updateInventory;
-  // var output = updatedInventory.concat(deliveries);
-  // return output;
+  return inventory;
 }
 
 /* TEST */
-
-// The function updateInventory; // should return an array.
-// updateInventory([
-//   [21, "Bowling Ball"],
-//   [2, "Dirty Sock"],
-//   [1, "Hair Pin"],
-//   [5, "Microphone"]
-// ], [
-//   [2, "Hair Pin"],
-//   [3, "Half-Eaten Apple"],
-//   [67, "Bowling Ball"],
-//   [7, "Toothpaste"]
-// ]).length; // should return an array with a length of 6.
-
 updateInventory(
   [[21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]],
   [
@@ -60,47 +45,30 @@ updateInventory(
     [67, "Bowling Ball"],
     [7, "Toothpaste"]
   ]
-); // should return [[88, "Bowling Ball"], [2, "Dirty Sock"], [3, "Hair Pin"], [3, "Half-Eaten Apple"], [5, "Microphone"], [7, "Toothpaste"]].
+);
+// should return [[88, "Bowling Ball"], [2, "Dirty Sock"], [3, "Hair Pin"], [3, "Half-Eaten Apple"], [5, "Microphone"], [7, "Toothpaste"]].
 
-// updateInventory([
-//   [21, "Bowling Ball"],
-//   [2, "Dirty Sock"],
-//   [1, "Hair Pin"],
-//   [5, "Microphone"]
-// ], []); // should return [[21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]].
+updateInventory(
+  [[21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]],
+  []
+); // should return [[21, "Bowling Ball"], [2, "Dirty Sock"], [1, "Hair Pin"], [5, "Microphone"]].
 
-// updateInventory([], [
-//   [2, "Hair Pin"],
-//   [3, "Half-Eaten Apple"],
-//   [67, "Bowling Ball"],
-//   [7, "Toothpaste"]
-// ]); // should return [[67, "Bowling Ball"], [2, "Hair Pin"], [3, "Half-Eaten Apple"], [7, "Toothpaste"]].
+updateInventory(
+  [],
+  [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+  ]
+); // should return [[67, "Bowling Ball"], [2, "Hair Pin"], [3, "Half-Eaten Apple"], [7, "Toothpaste"]].
 
-// updateInventory([
-//   [0, "Bowling Ball"],
-//   [0, "Dirty Sock"],
-//   [0, "Hair Pin"],
-//   [0, "Microphone"]
-// ], [
-//   [1, "Hair Pin"],
-//   [1, "Half-Eaten Apple"],
-//   [1, "Bowling Ball"],
-//   [1, "Toothpaste"]
-// ]); // should return [[1, "Bowling Ball"], [0, "Dirty Sock"], [1, "Hair Pin"], [1, "Half-Eaten Apple"], [0, "Microphone"], [1, "Toothpaste"]].
-
-// inventory.map(function (item) {
-//   var itemName = item[nameIndex];
-//   var itemAmount = item[amountIndex];
-
-//   for (var i = 0, len = deliveries.length; i < len; i++) {
-//     var deliveredItem = deliveries[i];
-//     var deliveredItemName = deliveredItem[nameIndex];
-
-//     if (itemName === deliveredItemName) {
-//       itemAmount += deliveredItem[amountIndex];
-//       deliveries.splice(i, deleteCount);
-//       break;
-//     }
-//   }
-//   updatedInventory.push([itemAmount, itemName]);
-// }, []);
+updateInventory(
+  [[0, "Bowling Ball"], [0, "Dirty Sock"], [0, "Hair Pin"], [0, "Microphone"]],
+  [
+    [1, "Hair Pin"],
+    [1, "Half-Eaten Apple"],
+    [1, "Bowling Ball"],
+    [1, "Toothpaste"]
+  ]
+); // should return [[1, "Bowling Ball"], [0, "Dirty Sock"], [1, "Hair Pin"], [1, "Half-Eaten Apple"], [0, "Microphone"], [1, "Toothpaste"]].
