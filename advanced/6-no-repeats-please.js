@@ -15,8 +15,12 @@ function permAlone(str) {
   var indices = str.length;
   var letters = new Set(str.split("")).size;
   var permutations = calcPermutations(indices, letters);
+  var ratio = letters / indices;
+  var invalids = permutations * ratio;
+  var output = permutations - invalids;
 
   debugger;
+  return output;
 }
 
 function calcPermutations(objects, samples) {
